@@ -1,43 +1,43 @@
 .login {
     background-color: #FFFFFF;
-    width: 600px;
-    height: 893px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    width: toRem(600);
+    height: toRem(893);
+    border-radius: toRem(20);
+    box-shadow: toRem(0)toRem(0)toRem(4) rgba(0, 0, 0, 0.1);
     overflow: hidden;
 
     h1 {
         background-color: #1864AB;
-        height: 150px;
-        font-size: 40px;
+        height: toRem(150);
+        font-size: toRem(40);
         font-weight: 700;
         display: flex;
         align-items: center;
         color: #FFFFFF;
         justify-content: center;
-        margin-bottom: 115px;
+        margin-bottom: toRem(115);
     }
 
     form {
-        padding: 0px 50px;
+        padding: toRem(0) toRem(50);
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        margin-bottom: 105px;
+        gap: toRem(20);
+        margin-bottom: toRem(105);
 
         input,
         button {
-            border-radius: 1000px;
+            border-radius: 100px;
             border: unset;
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            filter: drop-shadowtoRem(0px 4px 4px rgba(0, 0, 0, 0.25));
         }
 
         input {
-            height: 80px;
+            height: toRem(80);
             background-color: #DEE2E6;
-            padding-left: 44px;
-            font-size: 22px;
-            line-height: 22px;
+            padding-left: toRem(44);
+            font-size: toRem(22);
+            line-height: toRem(22);
 
             &::placeholder {
                 color: rgba(0, 0, 0, 0.75);
@@ -50,15 +50,15 @@
 
             span {
                 font-weight: 700;
-                font-size: 20px;
-                line-height: 27px;
+                font-size: toRem(20);
+                line-height: toRem(27);
                 color: #B0AED0;
             }
 
             a {
                 font-weight: 700;
-                font-size: 20px;
-                line-height: 27px;
+                font-size: toRem(20);
+                line-height: toRem(27);
                 text-decoration-line: underline;
                 color: #3F7CD5;
                 text-decoration: none;
@@ -67,10 +67,10 @@
         }
 
         button {
-            height: 70px;
+            height: toRem(70);
             background-color: #1864AB;
             font-weight: 700;
-            font-size: 24px;
+            font-size: toRem(24);
             color: white;
             cursor: pointer;
         }
@@ -83,14 +83,14 @@
         span,
         a {
             font-weight: 700;
-            font-size: 20px;
-            line-height: 27px;
+            font-size: toRem(20);
+            line-height: toRem(27);
         }
 
         span {
             display: block;
             color: #B0AED0;
-            margin-bottom: 8px;
+            margin-bottom: toRem(8);
         }
 
         a {
