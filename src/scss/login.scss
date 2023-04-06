@@ -1,0 +1,189 @@
+// Login
+.login,
+.register {
+    background-color: #FFFFFF;
+    width: toRem(600);
+    height: toRem(893);
+    border-radius: toRem(20);
+    box-shadow: toRem(0)toRem(0)toRem(4) rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    h1 {
+        background-color: #1864AB;
+        height: toRem(150);
+        font-size: toRem(40);
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        justify-content: center;
+        margin-bottom: toRem(115);
+    }
+
+    form {
+        padding: toRem(0) toRem(50);
+        display: flex;
+        flex-direction: column;
+        margin-bottom: toRem(105);
+        gap: toRem(20);
+
+        &>div {
+            display: flex;
+            flex-direction: column;
+            gap: toRem(20);
+        }
+
+        input,
+        button {
+            border-radius: 100px;
+            border: unset;
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) !important;
+        }
+
+        input {
+            min-height: toRem(80);
+            background-color: #DEE2E6;
+            padding-left: toRem(44);
+            font-size: toRem(20);
+            line-height: toRem(22);
+
+            &::placeholder {
+                color: rgba(0, 0, 0, 0.75);
+                font-weight: 700;
+            }
+        }
+
+        p {
+            text-align: right;
+
+            span {
+                font-weight: 700;
+                font-size: toRem(20);
+                line-height: toRem(27);
+                color: #B0AED0;
+            }
+
+            a {
+                font-weight: 700;
+                font-size: toRem(20);
+                line-height: toRem(27);
+                text-decoration-line: underline;
+                color: #3F7CD5;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+
+        button {
+            height: toRem(70);
+            background-color: #1864AB;
+            font-weight: 700;
+            font-size: toRem(24);
+            color: white;
+            cursor: pointer;
+        }
+
+    }
+
+    &>p {
+        text-align: center;
+
+        span,
+        a {
+            font-weight: 700;
+            font-size: toRem(20);
+            line-height: toRem(27);
+        }
+
+        span {
+            display: block;
+            color: #B0AED0;
+            margin-bottom: toRem(8);
+        }
+
+        a {
+            color: #3F7CD5;
+            text-decoration-line: underline;
+        }
+    }
+
+}
+
+// Register
+
+.register {
+    h1 {
+        margin-bottom: toRem(54);
+    }
+
+    form {
+        height: calc(100% - toRem(150 + 54));
+        justify-content: space-between;
+        gap: toRem(39);
+
+        &>div {
+            min-height: calc(100% - toRem(73) - toRem(63) - toRem(72));
+            //overflow-y: hidden;
+        }
+
+        &>section {
+
+            margin-bottom: toRem(97);
+            height: 173px;
+            
+            .form-progress {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 32px;
+                margin-bottom: toRem(32);
+
+                span:nth-child(1) .prev,
+                span:nth-child(5) .next {
+                    display: block;
+                    width: 18px;
+                    height: 18px;
+                    border-top: 5px solid #4A5568;
+                    border-right: 5px solid #4A5568;
+                }
+
+                span:nth-child(1),
+                span:nth-child(5) {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+
+                .prev {
+                    transform: rotate(-135deg);
+                }
+
+                .next {
+                    transform: rotate(45deg);
+                }
+
+                span:nth-child(2),
+                span:nth-child(3),
+                span:nth-child(4) {
+                    background-color: blue;
+                    display: inline-block;
+                    height: 24px;
+                    width: 24px;
+                    border-radius: 1000px;
+                    background-color: #D9D9D9;
+                    align-self: center;
+                    transition: all 200ms ease-out
+                }
+
+
+            }
+
+            button {
+                display: none;
+                width: 100%;
+                min-height: toRem(70);
+            }
+        }
+    }
+}

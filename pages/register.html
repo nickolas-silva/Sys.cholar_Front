@@ -11,37 +11,58 @@
 
   <div id="app">
 
-    <article class="login">
+    <article class="register">
 
       <h1>
-        <img src="../public/logo.svg">Sys.Cholar - Register
+        <img src="../public/logo.svg">Sys.Cholar
       </h1>
 
       <form>
+        <div>
 
-        <input type="text" name="usuario" placeholder="Usuário">
-        <input type="password" name="senha" placeholder="Senha">
+          <input type="text" name="nome" placeholder="Nome">
+          <input type="text" name="senha" placeholder="Sobrenome">
+          <input type="number" name="cpf" placeholder="CPF">
+          <input type="number" placeholder="Código Escolar">
 
-        <p>
-          <span>Recuperar</span>
-          <a>Senha?</a>
-        </p>
+          <input type="text" name="cidade" placeholder="Cidade">
+          <input type="text" name="senha" placeholder="Bairro">
+          <input type="number" name="cpf" placeholder="Número">
+          <input type="number" placeholder="CEP">
+          <input type="text" placeholder="Endereço">
 
-        <button type="submit">
-          Login
-        </button>
+
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="senha" placeholder="Senha">
+          <input type="password" name="cpf" placeholder="Confirmar Senha">
+
+        </div>
+
+        <section>
+          <div class="form-progress">
+            <span>
+              <span class="prev"></span>
+            </span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span>
+              <span class="next"></span>
+            </span>
+          </div>
+
+          <button type="submit">
+            Registrar-se
+          </button>
+        </section>
 
       </form>
-
-      <p>
-        <span>Não tem uma conta?</span><a href="">CADASTRAR AGORA</a>
-      </p>
-
     </article>
 
   </div>
 
   <script type="module" src="../src/main.js"></script>
+  <script type="text/javascript" src="/src/js/registerForm.js"></script>
 </body>
 
 </html>
