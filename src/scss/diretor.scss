@@ -42,6 +42,7 @@ main {
     height: toRem(804);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+    padding: toRem(48) toRem(16);
 }
 
 // Header 2 form
@@ -242,8 +243,6 @@ header.style-3 {
 // Listagem diretor
 
 main {
-    padding: toRem(48) toRem(16);
-
     .list-head {
         background-color: rgba(173, 181, 189, 1);
         height: toRem(50);
@@ -363,11 +362,70 @@ main.style-4 {
             display: grid;
             grid-template-columns: 40fr repeat(5, 10fr);
 
-            & span:last-child{
+            & span:last-child {
                 width: unset;
                 height: unset;
                 cursor: unset;
             }
+        }
+    }
+}
+
+// Cadastro de disciplina
+
+
+main {
+    padding: toRem(85) toRem(60);
+
+    h1 {
+        font-weight: 700;
+        font-size: toRem(36);
+        line-height: toRem(49);
+        margin-bottom: toRem(68);
+        color: #000000;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: toRem(25);
+        
+        select{
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        input,select{
+            height: toRem(54);
+            border: none;
+            background-color: rgba(222, 226, 230, 1);
+            border-radius: 1000px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            padding: 0px toRem(32);
+            width: toRem(1000);
+            font-weight: 400;
+            font-size: toRem(20);
+            line-height: toRem(27);
+
+            &::placeholder {
+                color: black;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: toRem(88);
+            align-self: flex-end;
+            width: toRem(300);
+            height: toRem(54);
+            border: none;
+            border-radius: 1000px;
+            background-color: rgba(24, 100, 171, 1);
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 27px;
+            text-align: center;
+            color: white;
         }
     }
 }
