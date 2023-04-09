@@ -280,6 +280,7 @@ main {
         }
 
         li {
+            cursor: pointer;
             height: toRem(50);
             display: flex;
             align-items: center;
