@@ -284,6 +284,7 @@ main {
         }
 
         li {
+            margin: 0px toRem(15);
             cursor: pointer;
             height: toRem(50);
             display: flex;
@@ -383,7 +384,7 @@ main.style-4 {
 // Cadastro de disciplina
 
 
-main {
+main:has(h1) {
     padding: toRem(85) toRem(60);
 
     h1 {
