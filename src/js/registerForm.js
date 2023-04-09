@@ -1,108 +1,93 @@
-const inputs = document.querySelectorAll("input");
-const button = document.querySelector("button");
-const buttonNext = document.querySelector(".next");
-const buttonPrev = document.querySelector(".prev");
-const dots = document.querySelectorAll(".dot");
+(function () {
 
-// Form transition
-function selectFormSequence(position) {
-    if((position != 0) && !validForm()){return false};
-    const sequences = [[0, 3], [4, 8], [9, 11]];
-    const [start,end] = sequences[position];
+    const inputs = document.querySelectorAll("input");
+    const button = document.querySelector("button");
+    const buttonNext = document.querySelector(".next");
+    const buttonPrev = document.querySelector(".prev");
+    const dots = document.querySelectorAll(".dot");
 
-    setActiveDotPosition(position);
-    inputs.forEach((input, index) => {
-        let displayValue = "none";
-        if (index >= start && index <= end) { displayValue = "inline" };
-        input.style.display = displayValue;
-    });
-
-    return true;
-}
-
-function setActiveDotPosition(position) {
-    dots.forEach((dot, index) => {
-        let color = "#D9D9D9";
-        if (index === position) { color = "#1864AB" }
-        dot.style.backgroundColor = color;
-    });
-    setActiveRegisterButton(position);
-    setActiveControlButtons(position);
-}
-
-
-function setActiveRegisterButton(position) {
-    let displayValue = "none";
-    if (position === (dots.length - 1)) {
-        displayValue = "inline-block";
-    }
-    button.style.display = displayValue;
-}
-
-
-function setActiveControlButtons(position) {
-    let grayscaleNext = "rgba(74, 85, 104, 1)";
-    let grayscalePrev = "rgba(74, 85, 104, 1)";
-
-
-    if (position === 0) {
-        grayscalePrev = "rgba(74, 85, 104, 0.25)";
-    }
-    if (position === (dots.length - 1)) {
-        grayscaleNext = "rgba(74, 85, 104, 0.25)";
+    // Form transition
+    function isInSequence(position, index) {
+        const sequences = [[0, 3], [4, 8], [9, 11]];
+        const [start, end] = sequences[position];
+        return (index >= start && index <= end);
     }
 
-    buttonPrev.style.borderColor = grayscalePrev;
-    buttonNext.style.borderColor = grayscaleNext;
-}
+    function selectFormSequence(position) {
+        if ((position != 0) && !validForm()) { return false };
 
-function sendForm() {
-    //Implementar depois
-}
-// Validação de formuário
+        inputs.forEach((input, index) => {
+            input.style.display = isInSequence(position,index) ? "inline" : "none";
+        });
+        setActiveDotPosition(position);
 
-function* getCurrentActiveInputs(){
-    for(const input of inputs){
-        const style = window.getComputedStyle(input);
-        const display = style.getPropertyValue("display");
-        if(display === "none"){continue};
-        yield input;
-    }
-}
-
-function validInput(input){
-    if(!input.value){
-        alert(`O campo ${input.name} está vázio`);
-        return false;
-    }
-    return true;
-}
-
-function validForm(){
-    for(const input of getCurrentActiveInputs()){
-        if(!validInput(input)){return false}
+        return true;
     }
 
-    return true;
-}
+    function setActiveDotPosition(position) {
+        dots.forEach((dot, index) => {
+            dot.style.backgroundColor = index === position ? "#1864AB" : "#D9D9D9";
+        });
+        setActiveRegisterButton(position);
+        setActiveControlButtons(position);
+    }
 
-const buttonOnClick = (function () {
-    let position = 0;
-    selectFormSequence(position);
 
-    return function (event) {
-        event.preventDefault();
-        let nextPosition = position;
-        if (event.target.classList.contains("next")) { nextPosition++ }
-        else { nextPosition-- }
-        if (nextPosition > 2 || nextPosition < 0) { return }
-        if(selectFormSequence(nextPosition)){
-            position = nextPosition;
+    function setActiveRegisterButton(position) {
+        button.style.display = (position === (dots.length - 1) ? "inline-block" : "none");
+    }
+
+
+    function setActiveControlButtons(position) {
+        const getState = (b) => (position === b ? "#4a556840" : "#4a5568");
+        buttonPrev.style.borderColor = getState(0);
+        buttonNext.style.borderColor = getState(dots.length - 1);
+    }
+
+    function sendForm() {
+        //Implementar depois
+    }
+    // Validação de formuário
+
+    function* getCurrentActiveInputs() {
+        for (const input of inputs) {
+            const style = window.getComputedStyle(input);
+            const display = style.getPropertyValue("display");
+            if (display !== "none") {yield input};
+        }
+    }
+
+    function validInput(input) {
+        if (!input.value) {
+            alert(`O campo ${input.name} está vázio`);
+            return false;
+        }
+        return true;
+    }
+
+    function validForm() {
+        for (const input of getCurrentActiveInputs()) {
+            if (!validInput(input)) { return false };
         }
 
+        return true;
     }
+
+    const buttonOnClick = (function () {
+        let position = 0;
+        selectFormSequence(position);
+
+        return function (event) {
+            event.preventDefault();
+            let nextPosition = position;
+            event.target.classList.contains("next") ? nextPosition++ : nextPosition--;
+            if (nextPosition > 2 || nextPosition < 0) { return };
+            if (selectFormSequence(nextPosition)) {position = nextPosition};
+
+        }
+    })();
+
+    buttonNext.addEventListener("click", buttonOnClick);
+    buttonPrev.addEventListener("click", buttonOnClick);
+
 })();
-
-buttonNext.addEventListener("click", buttonOnClick);
-buttonPrev.addEventListener("click", buttonOnClick);
-
