@@ -240,6 +240,10 @@ header.style-3 {
         color: black;
         cursor: pointer;
         background-color: rgba(231, 245, 255, 1);
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
     }
 }
 
