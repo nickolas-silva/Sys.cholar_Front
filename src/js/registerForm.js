@@ -4,12 +4,20 @@ const buttonNext = document.querySelector(".next");
 const buttonPrev = document.querySelector(".prev");
 const dots = document.querySelectorAll(".dot");
 
-function selectFormSequence([start, end]) {
+// Form transition
+function selectFormSequence(position) {
+    if((position != 0) && !validForm()){return false};
+    const sequences = [[0, 3], [4, 8], [9, 11]];
+    const [start,end] = sequences[position];
+
+    setActiveDotPosition(position);
     inputs.forEach((input, index) => {
         let displayValue = "none";
         if (index >= start && index <= end) { displayValue = "inline" };
         input.style.display = displayValue;
     });
+
+    return true;
 }
 
 function setActiveDotPosition(position) {
@@ -51,12 +59,36 @@ function setActiveControlButtons(position) {
 function sendForm() {
     //Implementar depois
 }
+// Validação de formuário
+
+function* getCurrentActiveInputs(){
+    for(const input of inputs){
+        const style = window.getComputedStyle(input);
+        const display = style.getPropertyValue("display");
+        if(display === "none"){continue};
+        yield input;
+    }
+}
+
+function validInput(input){
+    if(!input.value){
+        alert(`O campo ${input.name} está vázio`);
+        return false;
+    }
+    return true;
+}
+
+function validForm(){
+    for(const input of getCurrentActiveInputs()){
+        if(!validInput(input)){return false}
+    }
+
+    return true;
+}
 
 const buttonOnClick = (function () {
     let position = 0;
-    const sequences = [[0, 3], [4, 8], [9, 11]];
-    selectFormSequence(sequences[position]);
-    setActiveDotPosition(position);
+    selectFormSequence(position);
 
     return function (event) {
         event.preventDefault();
@@ -64,11 +96,13 @@ const buttonOnClick = (function () {
         if (event.target.classList.contains("next")) { nextPosition++ }
         else { nextPosition-- }
         if (nextPosition > 2 || nextPosition < 0) { return }
-        selectFormSequence(sequences[nextPosition]);
-        setActiveDotPosition(nextPosition);
-        position = nextPosition;
+        if(selectFormSequence(nextPosition)){
+            position = nextPosition;
+        }
+
     }
 })();
 
 buttonNext.addEventListener("click", buttonOnClick);
 buttonPrev.addEventListener("click", buttonOnClick);
+
