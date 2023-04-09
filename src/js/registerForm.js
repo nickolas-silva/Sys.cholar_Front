@@ -17,7 +17,7 @@
         if ((position != 0) && !validForm()) { return false };
 
         inputs.forEach((input, index) => {
-            input.style.display = isInSequence(position,index) ? "inline" : "none";
+            input.style.display = isInSequence(position, index) ? "inline" : "none";
         });
         setActiveDotPosition(position);
 
@@ -53,7 +53,7 @@
         for (const input of inputs) {
             const style = window.getComputedStyle(input);
             const display = style.getPropertyValue("display");
-            if (display !== "none") {yield input};
+            if (display !== "none") { yield input };
         }
     }
 
@@ -82,12 +82,27 @@
             let nextPosition = position;
             event.target.classList.contains("next") ? nextPosition++ : nextPosition--;
             if (nextPosition > 2 || nextPosition < 0) { return };
-            if (selectFormSequence(nextPosition)) {position = nextPosition};
+            if (selectFormSequence(nextPosition)) { position = nextPosition };
 
         }
     })();
 
+    function formOnSubmit(event) {
+        event.preventDefault();
+        const passwordsEquals = Array.from(inputs)
+            .filter(({ type }) => type === "password")
+            .reduce((a, c) => a.value === c.value);
+
+        if (!passwordsEquals) {
+            alert("As senhas não estão iguais!");
+            return;
+        };
+
+        window.location.replace("/");
+    }
+
     buttonNext.addEventListener("click", buttonOnClick);
     buttonPrev.addEventListener("click", buttonOnClick);
+    button.addEventListener("click", formOnSubmit);
 
 })();
