@@ -1,144 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../src/scss/aluno.scss">
-    <title>Sys.Scholar</title>
-  </head>
-  <body style="background-color: #dee2e6">
-    <div class="app">
-      <header
-        class="style-2"
-        style="display: flex; justify-content: space-around; align-items: center;"
-      >
-        <img
-          src="/public/arrow-back.svg"
-          alt="voltar"
-          class="arrow-back"
-          style="padding: 10px;
-          height: min-content;
-          background-color: white;
-          border-radius: 50%;"
-        />
+<html lang="pt-br">
 
-        <form style="display: flex; align-items: center">
-          <p
-            style="
-              margin-right: 10px;
-              border: 2px solid black;
-              border-radius: 25px;
-              width: 1000px;
-              padding: 2px 4px;
-              background-color: white;
-            "
-          >
-            <label for="search">
-              <img src="../../public/searchIcon.svg" alt="voltar" />
-            </label>
-            <input type="text" id="search" name="search" style="border: none" />
-          </p>
-          <button
-            style="
-              background-color: #1864ab;
-              border-radius: 25%;
-              padding: 0.8rem;
-              color: white;
-              font-size: 13px;
-            "
-          >
-            Buscar
-          </button>
-        </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../src/scss/diretor.scss">
+  <title>Sys.scholar</title>
+</head>
 
-        <img
-          src="/public/user-logo.svg"
-          alt="opções de usuários"
-          class="user-logo"
-          style="
-            padding: 5px;
-            height: min-content;
-            background-color: white;
-            border-radius: 50%;
-          "
-        />
-      </header>
+<body>
 
-      <section class="info-bar style-4" style="background-color:white; margin: 0 50px;">
-        <ul
-          style="
-            display: flex;
-            list-style: none;
-            justify-content: space-between;
-            padding-left: 0;
-            margin: auto 10px;
-          "
-        >
-          <li>
-            <h4>Professor</h4>
-          </li>
-          <li>
-            <h4>Horário</h4>
-          </li>
-          <li>
-            <h4>Local</h4>
-          </li>
-          <li>
-            <h4>Status</h4>
-          </li>
-        </ul>
+  <div id="app">
+    <header class="style-3">
+      <img src="/public/arrow-back.svg" alt="voltar" class="arrow-back">
+
+      <form>
+        <p>
+          <label for="search">
+            <img src="/public/searchIcon.svg" alt="voltar">
+          </label>
+          <input type="text" id="search" name="search">
+        </p>
+        <button>
+          Buscar
+        </button>
+      </form>
+
+      <img src="/public/user-logo.svg" alt="opções de usuários" class="user-logo">
+
+    </header>
+
+    <section class="info-bar style-4">
+      <ul>
+        <li>
+          Professor:
+        </li>
+        <li>
+          Aluno:
+        </li>
+        <li>
+          Disciplina:
+        </li>
+        <li>
+          Status:
+        </li>
+      </ul>
+    </section>
+
+    <main class="style-4">
+      <section class="list-head">
+        <b>Alunos Matriculados</b>
       </section>
 
-      <table
-        style="
-          text-align: left;
-          background: #fff;
-          margin: 10px auto;
-          width: 80%;
-          height: 440px;
+      <ul class="list-body">
+        <li>
+          <span>Nome do aluno</span>
+        </li>
+        <li>
+          <span>Nome do aluno</span>
+        </li>
+        <li>
+          <span>Nome do aluno</span>
+        </li>
+        <li>
+          <span>Nome do aluno</span>
+        </li>
+        <li>
+          <span>Nome do aluno</span>
+        </li>
+        <li>
+          <span>Nome do aluno</span>
+        </li>
 
-        "
-      >
-        <thead>
-          <tr>
-            <th style="background-color: #ADB5BD;">Alunos Matriculados</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-          <tr>
-            <td>Nome do Aluno</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <script type="module" src="../../src/main.js"></script>
-  </body>
+
+      </ul>
+    </main>
+  </div>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+
 </html>
