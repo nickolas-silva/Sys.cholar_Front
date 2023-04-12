@@ -1,17 +1,18 @@
 function createModal(message) {
-    const div = document.createElement("div");
-    const span = document.createElement("span");
-    const modal = document.createElement("section");
-    const h2 = document.createElement("h2");
-    const p = document.createElement("p");
+    const create = (element,text="",classes) =>{
+        const e = document.createElement(element);
+        e.textContent = text;
+        e.classList.add(classes);
+        return e;
+    };
     
-    div.classList.add("modal");
-    span.textContent = "X";
-    h2.textContent = message;
+    const div = create("div","","modal");
+    const modal = create("section");
+    const p = create("p");
+    const childs = [create("span","X"),create("h2",message),p];
     
-    modal.appendChild(span);
-    modal.appendChild(h2);
-    modal.appendChild(p);
+    childs.forEach((c)=>modal.appendChild(c));
+    
     div.appendChild(modal);
     
     deleteModalHandler(div);
