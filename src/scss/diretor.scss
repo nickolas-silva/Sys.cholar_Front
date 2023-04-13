@@ -179,6 +179,11 @@ header.style-3 {
             color: black;
             cursor: pointer;
             background-color: rgba(231, 245, 255, 1);
+            
+            a{
+                color: inherit;
+                text-decoration: none;
+            }
         }
     }
 }
@@ -186,11 +191,8 @@ header.style-3 {
 
 .info-bar.style-3 {
     ul {
-        grid-template-columns: 1fr 1fr toRem(100);
+        grid-template-columns: 1fr 1fr minmax(toRem(100),toRem(200));
 
-        li:nth-child(1n + 3):not(:last-child) {
-            display: none;
-        }
     }
 }
 
@@ -212,7 +214,11 @@ header.style-3 {
             align-items: center;
             gap: toRem(8);
             cursor: pointer;
-
+            a{
+                color: black;
+                font-size: toRem(16);
+                text-decoration: none;
+            }
             &::before {
                 content: "";
                 display: inline-block;
@@ -224,7 +230,7 @@ header.style-3 {
     }
 
     button {
-        width: toRem(100);
+        width: toRem(184);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 1000px;
         border: none;
@@ -236,6 +242,10 @@ header.style-3 {
         color: black;
         cursor: pointer;
         background-color: rgba(231, 245, 255, 1);
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
     }
 }
 
@@ -249,7 +259,7 @@ main {
         border-radius: 1000px;
         display: flex;
         align-items: center;
-        padding: 0px toRem(42);
+        padding: 0px toRem(32);
         margin-bottom: toRem(32);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -276,6 +286,8 @@ main {
         }
 
         li {
+            margin: 0px toRem(15);
+            cursor: pointer;
             height: toRem(50);
             display: flex;
             align-items: center;
@@ -374,7 +386,7 @@ main.style-4 {
 // Cadastro de disciplina
 
 
-main {
+main:has(h1) {
     padding: toRem(85) toRem(60);
 
     h1 {
