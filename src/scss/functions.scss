@@ -1,3 +1,0 @@
-@function toRem($value){
-    @return calc(($value/16) * 1rem);
-}
